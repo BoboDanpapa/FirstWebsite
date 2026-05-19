@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Sakura Keys 🌸</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .contact-wrap{padding:40px;max-width:1100px;margin:0 auto}
+        .contact-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:32px;margin-top:32px}
+        .contact-info{display:flex;flex-direction:column;gap:20px}
+        .info-card{background:#fff;border-radius:20px;padding:24px;box-shadow:var(--shadow)}
+        .info-card h3{font-size:16px;font-weight:900;color:var(--text);margin-bottom:16px}
+        .info-item{display:flex;align-items:flex-start;gap:14px;margin-bottom:16px}
+        .info-item:last-child{margin-bottom:0}
+        .info-icon{font-size:24px;flex-shrink:0;margin-top:2px}
+        .info-label{font-size:12px;font-weight:800;color:var(--text-mid);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px}
+        .info-value{font-size:14px;font-weight:700;color:var(--text);line-height:1.5}
+        .info-value a{color:var(--sky-dark);text-decoration:none}
+        .info-value a:hover{text-decoration:underline}
+        .social-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
+        .social-btn{display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:12px;font-size:13px;font-weight:700;text-decoration:none;transition:all 0.3s;border:2px solid transparent}
+        .social-btn:hover{transform:scale(1.05)}
+        .social-wa{background:#25D366;color:#fff}
+        .social-line{background:#00C300;color:#fff}
+        .social-wechat{background:#07C160;color:#fff}
+        .social-ig{background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff}
+        .form-card{background:#fff;border-radius:20px;padding:32px;box-shadow:var(--shadow)}
+        .form-card h3{font-size:20px;font-weight:900;color:var(--text);margin-bottom:6px}
+        .form-card p{font-size:13px;color:var(--text-mid);font-weight:600;margin-bottom:24px}
+        .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+        .form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+        .form-group label{font-size:13px;font-weight:800;color:var(--text)}
+        .form-group input,.form-group select,.form-group textarea{border:2px solid #d0eaf8;border-radius:12px;padding:12px 16px;font-size:14px;font-family:'Nunito',sans-serif;font-weight:600;color:var(--text);outline:none;transition:border 0.3s;background:var(--sky-pale)}
+        .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--sky-mid);background:#fff}
+        .form-group textarea{resize:vertical;min-height:110px}
+        .form-submit{width:100%;background:linear-gradient(135deg,var(--sky-dark),var(--sky-mid));color:#fff;border:none;padding:16px;border-radius:14px;font-size:16px;font-weight:800;font-family:'Nunito',sans-serif;cursor:pointer;transition:all 0.3s}
+        .form-submit:hover{transform:scale(1.02);box-shadow:0 6px 20px rgba(21,101,192,0.3)}
+        .booking-section{background:linear-gradient(135deg,#E3F2FD,#E0F7FA);border-radius:24px;padding:36px;margin-top:40px}
+        .booking-section h3{font-size:20px;font-weight:900;color:var(--text);margin-bottom:6px;text-align:center}
+        .booking-section p{font-size:13px;color:var(--text-mid);font-weight:600;margin-bottom:24px;text-align:center}
+        .type-btns{display:flex;gap:12px;justify-content:center;margin-bottom:24px;flex-wrap:wrap}
+        .type-btn{padding:10px 24px;border-radius:25px;border:2px solid #d0eaf8;background:var(--sky-pale);cursor:pointer;font-size:14px;font-weight:700;font-family:'Nunito',sans-serif;transition:all 0.3s;color:var(--text-mid)}
+        .type-btn.active{background:linear-gradient(135deg,var(--sky-dark),var(--sky-mid));border-color:var(--sky-dark);color:#fff}
+        .booking-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+        .booking-group{display:flex;flex-direction:column;gap:6px}
+        .booking-group label{font-size:13px;font-weight:800;color:var(--text)}
+        .booking-group input,.booking-group select{border:2px solid #d0eaf8;border-radius:12px;padding:12px 16px;font-size:14px;font-family:'Nunito',sans-serif;font-weight:600;color:var(--text);outline:none;background:#fff}
+        .booking-group input:focus,.booking-group select:focus{border-color:var(--sky-mid)}
+        .faq-section{margin-top:40px}
+        .faq-item{background:#fff;border-radius:16px;margin-bottom:12px;overflow:hidden;box-shadow:0 4px 16px rgba(79,195,247,0.1)}
+        .faq-q{padding:18px 24px;font-size:15px;font-weight:800;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background 0.3s}
+        .faq-q:hover{background:var(--sky-lt)}
+        .faq-icon{font-size:20px;color:var(--sky-dark);transition:transform 0.3s}
+        .faq-a{display:none;padding:16px 24px 20px;font-size:14px;color:var(--text-mid);line-height:1.7;font-weight:600;border-top:1px solid var(--sky-lt)}
+        .faq-a.open{display:block}
+        @media(max-width:900px){
+            .contact-wrap{padding:20px}
+            .contact-grid{grid-template-columns:1fr}
+            .form-row{grid-template-columns:1fr}
+            .booking-grid{grid-template-columns:1fr}
+        }
+    </style>
+</head>
+<body>
+
+<div class="lang-bar">
+    <span style="color:rgba(255,255,255,0.7);font-size:13px;font-weight:700;margin-right:6px;">🌐</span>
+    <button class="lang-btn active" onclick="setLang('en',this)">EN</button>
+    <button class="lang-btn" onclick="setLang('zh',this)">中文</button>
+    <button class="lang-btn" onclick="setLang('ja',this)">日本語</button>
+</div>
+
+<nav>
+    <a class="logo" href="index.html"><div class="logo-icon">🌸</div><div><div class="logo-main">Sakura Keys</div><div class="logo-sub">東京の鍵 · 东京之钥</div></div></a>
+    <ul class="nav-links">
+        <li><a href="index.html" data-nav-en="🏠 Home" data-nav-zh="🏠 首页" data-nav-ja="🏠 ホーム">🏠 Home</a></li>
+        <li><a href="properties.html" data-nav-en="🏢 Properties" data-nav-zh="🏢 房源" data-nav-ja="🏢 物件">🏢 Properties</a></li>
+        <li><a href="areas.html" data-nav-en="🗺️ Areas" data-nav-zh="🗺️ 区域" data-nav-ja="🗺️ エリア">🗺️ Areas</a></li>
+        <li><a href="invest.html" data-nav-en="💡 Invest" data-nav-zh="💡 投资" data-nav-ja="💡 投資">💡 Invest</a></li>
+        <li><a href="blog.html" data-nav-en="📰 Blog" data-nav-zh="📰 资讯" data-nav-ja="📰 ブログ">📰 Blog</a></li>
+        <li><a href="contact.html" class="nav-cta" data-nav-en="✉️ Contact" data-nav-zh="✉️ 联系" data-nav-ja="✉️ お問い合わせ">✉️ Contact</a></li>
+    </ul>
+</nav>
+
+<div class="page-hero">
+    <div class="page-hero-content">
+        <h1><span data-lang="en">✉️ Get In Touch</span><span data-lang="zh">✉️ 联系我们</span><span data-lang="ja">✉️ お問い合わせ</span></h1>
+        <p><span data-lang="en">Our trilingual team is ready to help you in English, Chinese & Japanese</span><span data-lang="zh">我们的三语团队随时为您提供英语、中文和日语服务</span><span data-lang="ja">英語・中国語・日本語対応チームがサポートします</span></p>
+    </div>
+</div>
+
+<div class="breadcrumb"><a href="index.html">Home</a> › <span data-lang="en">Contact</span><span data-lang="zh">联系</span><span data-lang="ja">お問い合わせ</span></div>
+
+<div class="contact-wrap">
+    <div class="contact-grid">
+
+        <!-- LEFT: CONTACT INFO -->
+        <div class="contact-info">
+
+            <div class="info-card">
+                <h3>🇸🇬 <span data-lang="en">Singapore Office</span><span data-lang="zh">新加坡办公室</span><span data-lang="ja">シンガポールオフィス</span></h3>
+                <div class="info-item">
+                    <div class="info-icon">📍</div>
+                    <div>
+                        <div class="info-label"><span data-lang="en">Address</span><span data-lang="zh">地址</span><span data-lang="ja">住所</span></div>
+                        <div class="info-value">1 Raffles Place, #20-01<br>Singapore 048616</div>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">📞</div>
+                    <div>
+                        <div class="info-label"><span data-lang="en">Phone</span><span data-lang="zh">电话</span><span data-lang="ja">電話</span></div>
+                        <div class="info-value"><a href="tel:+6591234567">+65 9123 4567</a></div>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">🕐</div>
+                    <div>
+                        <div class="info-label"><span data-lang="en">Hours</span><span data-lang="zh">营业时间</span><span data-lang="ja">営業時間</span></div>
+                        <div class="info-value">
+                            <span data-lang="en">Mon–Fri 9am–6pm SGT<br>Sat 10am–3pm SGT</span>
+                            <span data-lang="zh">周一至周五 上午9点–下午6点<br>周六 上午10点–下午3点</span>
+                            <span data-lang="ja">月〜金 9:00〜18:00 SGT<br>土 10:00〜15:00 SGT</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h3>🇯🇵 <span data-lang="en">Tokyo Office</span><span data-lang="zh">东京办公室</span><span data-lang="ja">東京オフィス</span></h3>
+                <div class="info-item">
+                    <div class="info-icon">📍</div>
+                    <div>
+                        <div class="info-label"><span data-lang="en">Address</span><span data-lang="zh">地址</span><span data-lang="ja">住所</span></div>
+                        <div class="info-value">〒100-0005<br>東京都千代田区丸の内1-1-1<br>丸の内ビルディング 15F</div>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">📞</div>
+                    <div>
+                        <div class="info-label"><span data-lang="en">Phone</span><span data-lang="zh">电话</span><span data-lang="ja">電話</span></div>
+                        <div class="info-value"><a href="tel:+81312345678">+81 3-1234-5678</a></div>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">🕐</div>
+                    <div>
+                        <div class="info-label"><span data-lang="en">Hours</span><span data-lang="zh">营业时间</span><span data-lang="ja">営業時間</span></div>
+                        <div class="info-value">
+                            <span data-lang="en">Mon–Fri 9am–6pm JST</span>
+                            <span data-lang="zh">周一至周五 上午9点–下午6点（日本时间）</span>
+                            <span data-lang="ja">月〜金 9:00〜18:00 JST</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h3>💬 <span data-lang="en">Chat With Us</span><span data-lang="zh">即时联系</span><span data-lang="ja">チャットで連絡</span></h3>
+                <p style="font-size:13px;color:var(--text-mid);font-weight:600;margin-bottom:14px">
+                    <span data-lang="en">Prefer to chat? Reach us on your favourite platform</span>
+                    <span data-lang="zh">喜欢聊天？在您最常用的平台上联系我们</span>
+                    <span data-lang="ja">チャットでのお問い合わせはこちら</span>
+                </p>
+                <div class="social-links">
+                    <a href="https://wa.me/6591234567" target="_blank" class="social-btn social-wa">💬 WhatsApp</a>
+                    <a href="#" class="social-btn social-line">LINE</a>
+                    <a href="#" class="social-btn social-wechat">💚 WeChat</a>
+                    <a href="#" class="social-btn social-ig">📸 Instagram</a>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h3>📧 <span data-lang="en">Email Us</span><span data-lang="zh">发送邮件</span><span data-lang="ja">メールでのお問い合わせ</span></h3>
+                <div class="info-item">
+                    <div class="info-icon">📧</div>
+                    <div>
+                        <div class="info-label"><span data-lang="en">General Enquiries</span><span data-lang="zh">一般咨询</span><span data-lang="ja">一般的なお問い合わせ</span></div>
+                        <div class="info-value"><a href="mailto:hello@sakurakeys.com">hello@sakurakeys.com</a></div>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">🏢</div>
+                    <div>
+                        <div class="info-label"><span data-lang="en">Property Listings</span><span data-lang="zh">房源咨询</span><span data-lang="ja">物件のお問い合わせ</span></div>
+                        <div class="info-value"><a href="mailto:listings@sakurakeys.com">listings@sakurakeys.com</a></div>
+                    </div>
+                </div>
+                <div class="info-item" style="margin-bottom:0">
+                    <div class="info-icon">💼</div>
+                    <div>
+                        <div class="info-label"><span data-lang="en">Investment Advisory</span><span data-lang="zh">投资咨询</span><span data-lang="ja">投資アドバイザリー</span></div>
+                        <div class="info-value"><a href="mailto:invest@sakurakeys.com">invest@sakurakeys.com</a></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- RIGHT: CONTACT FORM -->
+        <div>
+            <div class="form-card" id="contactFormWrap">
+                <h3>
+                    <span data-lang="en">Send Us a Message</span>
+                    <span data-lang="zh">给我们留言</span>
+                    <span data-lang="ja">メッセージを送る</span>
+                </h3>
+                <p>
+                    <span data-lang="en">We'll reply within 24 hours in your preferred language</span>
+                    <span data-lang="zh">我们将在24小时内以您偏好的语言回复</span>
+                    <span data-lang="ja">ご希望の言語で24時間以内にご返信します</span>
+                </p>
+                <div class="form-row">
+                    <div class="form-group" style="margin-bottom:0">
+                        <label>👤 <span data-lang="en">Full Name *</span><span data-lang="zh">姓名 *</span><span data-lang="ja">お名前 *</span></label>
+                        <input type="text" placeholder="Wei Ling Tan" required>
+                    </div>
+                    <div class="form-group" style="margin-bottom:0">
+                        <label>📧 <span data-lang="en">Email *</span><span data-lang="zh">电子邮件 *</span><span data-lang="ja">メール *</span></label>
+                        <input type="email" placeholder="you@email.com" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group" style="margin-bottom:0">
+                        <label>📱 <span data-lang="en">WhatsApp / Phone</span><span data-lang="zh">WhatsApp / 电话</span><span data-lang="ja">WhatsApp / 電話</span></label>
+                        <input type="tel" placeholder="+65 9XXX XXXX">
+                    </div>
+                    <div class="form-group" style="margin-bottom:0">
+                        <label>🌐 <span data-lang="en">Preferred Language</span><span data-lang="zh">首选语言</span><span data-lang="ja">希望言語</span></label>
+                        <select>
+                            <option>English</option>
+                            <option>中文 (Chinese)</option>
+                            <option>日本語 (Japanese)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group" style="margin-bottom:0">
+                        <label>💰 <span data-lang="en">Budget</span><span data-lang="zh">预算</span><span data-lang="ja">ご予算</span></label>
+                        <select>
+                            <option>Under ¥50M (S$450K)</option>
+                            <option>¥50M–¥100M (S$450K–900K)</option>
+                            <option>¥100M–¥200M (S$900K–1.8M)</option>
+                            <option>¥200M+ (S$1.8M+)</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="margin-bottom:0">
+                        <label>🎯 <span data-lang="en">Purpose</span><span data-lang="zh">购房目的</span><span data-lang="ja">購入目的</span></label>
+                        <select>
+                            <option><span data-lang="en">Investment</span></option>
+                            <option><span data-lang="en">Own Use / Relocation</span></option>
+                            <option><span data-lang="en">Both</span></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>💬 <span data-lang="en">Message</span><span data-lang="zh">留言</span><span data-lang="ja">メッセージ</span></label>
+                    <textarea placeholder="Tell us what you're looking for, any specific districts or property types you have in mind..."></textarea>
+                </div>
+                <button class="form-submit" onclick="submitContact(this)">
+                    ✉️ <span data-lang="en">Send Message</span><span data-lang="zh">发送留言</span><span data-lang="ja">送信する</span>
+                </button>
+                <div id="contactSuccess" style="display:none;text-align:center;padding:24px">
+                    <div style="font-size:52px;margin-bottom:12px">✅</div>
+                    <p style="color:var(--sky-dark);font-size:17px;font-weight:800">
+                        <span data-lang="en">Message sent! We'll reply within 24 hours. 🌸</span>
+                        <span data-lang="zh">留言已发送！我们将在24小时内回复。🌸</span>
+                        <span data-lang="ja">送信完了！24時間以内にご返信します。🌸</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOOK A VIEWING -->
+    <div class="booking-section">
+        <h3>📅 <span data-lang="en">Book a Property Viewing</span><span data-lang="zh">预约看房</span><span data-lang="ja">内覧予約</span></h3>
+        <p>
+            <span data-lang="en">Online or in-person — we'll arrange everything for you</span>
+            <span data-lang="zh">线上或线下看房，我们为你安排一切</span>
+            <span data-lang="ja">オンライン・現地内覧、どちらも対応します</span>
+        </p>
+        <div class="type-btns">
+            <button class="type-btn active" onclick="setViewType(this)">
+                💻 <span data-lang="en">Online Viewing</span><span data-lang="zh">线上看房</span><span data-lang="ja">オンライン内覧</span>
+            </button>
+            <button class="type-btn" onclick="setViewType(this)">
+                🏠 <span data-lang="en">In-Person Visit</span><span data-lang="zh">现场参观</span><span data-lang="ja">現地内覧</span>
+            </button>
+        </div>
+        <div class="booking-grid">
+            <div class="booking-group">
+                <label>👤 <span data-lang="en">Your Name</span><span data-lang="zh">姓名</span><span data-lang="ja">お名前</span></label>
+                <input type="text" placeholder="Wei Ling Tan">
+            </div>
+            <div class="booking-group">
+                <label>📱 <span data-lang="en">WhatsApp / Phone</span><span data-lang="zh">WhatsApp / 电话</span><span data-lang="ja">WhatsApp / 電話</span></label>
+                <input type="tel" placeholder="+65 9XXX XXXX">
+            </div>
+            <div class="booking-group">
+                <label>📅 <span data-lang="en">Preferred Date</span><span data-lang="zh">首选日期</span><span data-lang="ja">ご希望の日程</span></label>
+                <input type="date">
+            </div>
+            <div class="booking-group">
+                <label>🏢 <span data-lang="en">Property of Interest</span><span data-lang="zh">感兴趣的房源</span><span data-lang="ja">ご興味の物件</span></label>
+                <select>
+                    <option>Shinjuku Garden Residence</option>
+                    <option>Shibuya Sky Tower</option>
+                    <option>Minato Prestige Residence</option>
+                    <option>Setagaya Green Villa</option>
+                    <option>Chiyoda Imperial View</option>
+                    <option>Bunkyo Sakura Penthouse</option>
+                    <option><span data-lang="en">Not sure yet</span><span data-lang="zh">还不确定</span><span data-lang="ja">未定</span></option>
+                </select>
+            </div>
+        </div>
+        <button style="width:100%;background:linear-gradient(135deg,var(--sky-dark),var(--sky-mid));color:#fff;border:none;padding:16px;border-radius:14px;font-size:16px;font-weight:800;font-family:'Nunito',sans-serif;cursor:pointer;transition:all 0.3s" onclick="submitBooking(this)" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+            📅 <span data-lang="en">Confirm Booking</span><span data-lang="zh">确认预约</span><span data-lang="ja">予約を確定する</span>
+        </button>
+        <div id="bookingSuccess" style="display:none;text-align:center;padding:20px">
+            <div style="font-size:48px;margin-bottom:12px">🎉</div>
+            <p style="color:var(--sky-dark);font-size:16px;font-weight:800">
+                <span data-lang="en">Booking confirmed! We'll contact you within 24 hours.</span>
+                <span data-lang="zh">预约成功！我们将在24小时内与您联系。</span>
+                <span data-lang="ja">予約が確定しました！24時間以内にご連絡します。</span>
+            </p>
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq-section">
+        <div class="sec-header" style="padding:40px 0 20px">
+            <div class="sec-tag">❓ FAQ</div>
+            <h2><span data-lang="en">Frequently Asked Questions</span><span data-lang="zh">常见问题</span><span data-lang="ja">よくある質問</span></h2>
+            <p><span data-lang="en">Quick answers for Singapore buyers</span><span data-lang="zh">为新加坡买家提供快速解答</span><span data-lang="ja">シンガポール人購入者向けFAQ</span></p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+                <span><span data-lang="en">Can Singaporeans buy property in Japan?</span><span data-lang="zh">新加坡人可以在日本购买房产吗？</span><span data-lang="ja">シンガポール人は日本で不動産を購入できますか？</span></span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+                <span data-lang="en">Yes! Japan has absolutely no restrictions on foreign property ownership. Singaporeans can freely purchase any residential or commercial property in Japan without a special visa or residency permit.</span>
+                <span data-lang="zh">可以！日本对外国人购房完全没有限制。新加坡人无需特殊签证或居留许可，可以自由购买日本任何住宅或商业房产。</span>
+                <span data-lang="ja">はい！日本には外国人の不動産所有に関する制限は一切ありません。シンガポール人は特別なビザや在留資格なしに、日本の住宅・商業物件を自由に購入できます。</span>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+                <span><span data-lang="en">Do I need to visit Japan to buy a property?</span><span data-lang="zh">我需要亲自去日本才能购买房产吗？</span><span data-lang="ja">購入のために日本に行く必要がありますか？</span></span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+                <span data-lang="en">No! The entire purchase process can be completed remotely from Singapore. We offer virtual property tours, handle all documentation, and can arrange a Power of Attorney so our team completes the registration on your behalf.</span>
+                <span data-lang="zh">不需要！整个购买流程可以在新加坡远程完成。我们提供虚拟看房、处理所有文件，并可安排委托书，由我们的团队代表您完成登记。</span>
+                <span data-lang="ja">不要です！購入手続き全体をシンガポールからリモートで完結できます。バーチャル内覧・全書類対応・委任状手配により、登記まで代行します。</span>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+                <span><span data-lang="en">How is Japan different from buying in Singapore?</span><span data-lang="zh">在日本购房与在新加坡购房有何不同？</span><span data-lang="ja">シンガポールでの購入と日本での購入の違いは？</span></span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+                <span data-lang="en">The biggest difference: Japan has NO Additional Buyer's Stamp Duty (ABSD). Singapore charges foreigners 60% ABSD — on a S$1M property that's S$600,000 extra! In Japan, total transaction costs are typically 6–8% of the purchase price.</span>
+                <span data-lang="zh">最大的区别：日本没有额外买家印花税（ABSD）。新加坡对外国人征收60%的ABSD——购买100万新元的房产需额外支付60万新元！在日本，总交易成本通常为购买价格的6-8%。</span>
+                <span data-lang="ja">最大の違い：日本にはABSDがありません。シンガポールは外国人に60%のABSDを課税。100万SGDの物件で60万SGDの追加コストに！日本の総取引コストは通常物件価格の6〜8%です。</span>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+                <span><span data-lang="en">What are your service fees?</span><span data-lang="zh">你们的服务费用是多少？</span><span data-lang="ja">サービス料金はいくらですか？</span></span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+                <span data-lang="en">Our buyer's agent fee is 3% of the purchase price (standard Japanese real estate commission). This covers property search, viewings, negotiation, legal coordination and transaction support. Property management is charged separately at 5–8% of monthly rent.</span>
+                <span data-lang="zh">我们的买方代理费为购买价格的3%（日本标准房产佣金）。包括房源搜索、看房、谈判、法律协调和交易支持。房产管理费另行收取，为月租金的5-8%。</span>
+                <span data-lang="ja">買主仲介手数料は購入価格の3%（日本標準）。物件探し・内覧・交渉・法的調整・取引サポートが含まれます。管理費は月額家賃の5〜8%で別途請求。</span>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+                <span><span data-lang="en">How long does the buying process take?</span><span data-lang="zh">购房流程需要多长时间？</span><span data-lang="ja">購入手続きにはどのくらいかかりますか？</span></span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+                <span data-lang="en">Typically 4–8 weeks from offer acceptance to ownership registration. This includes due diligence (1–2 weeks), contract signing (1 week), and final payment & registration (2–4 weeks). We'll keep you updated every step of the way.</span>
+                <span data-lang="zh">从接受报价到完成所有权登记通常需要4-8周。包括尽职调查（1-2周）、签署合同（1周）以及最终付款和登记（2-4周）。我们将全程为您更新进度。</span>
+                <span data-lang="ja">オファー承認から所有権登記まで通常4〜8週間。デューデリジェンス（1〜2週間）・契約締結（1週間）・残代金決済・登記（2〜4週間）。全ステップで進捗をご報告します。</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <div class="footer-logo">🌸 Sakura Keys</div>
+    <div class="footer-tag">東京の鍵 · 东京之钥 · Your Key to Tokyo Living</div>
+    <div class="footer-links">
+        <a href="index.html">🏠 Home</a>
+        <a href="properties.html">🏢 Properties</a>
+        <a href="areas.html">🗺️ Areas</a>
+        <a href="invest.html">💡 Invest</a>
+        <a href="blog.html">📰 Blog</a>
+        <a href="contact.html">✉️ Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 Sakura Keys. All rights reserved. | Exchange rate: 1 SGD ≈ ¥110 JPY (indicative only)</div>
+</footer>
+
+<div class="float-cta">
+    <a href="https://wa.me/6591234567" target="_blank" class="float-btn float-btn-wa">💬 WhatsApp</a>
+    <a href="tel:+6591234567" class="float-btn float-btn-call">📞 Call</a>
+    <a href="contact.html" class="float-btn float-btn-mail">✉️ Email</a>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

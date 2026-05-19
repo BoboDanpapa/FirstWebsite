@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Properties | Sakura Keys 🌸</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .properties-wrap{padding:40px;max-width:1280px;margin:0 auto}
+        .property-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:28px}
+        .sidebar{background:#fff;border-radius:20px;padding:24px;box-shadow:var(--shadow);margin-bottom:28px}
+        .sidebar h3{font-size:16px;font-weight:900;color:var(--text);margin-bottom:16px}
+        .filter-group{margin-bottom:16px}
+        .filter-group label{font-size:12px;font-weight:800;color:var(--text-mid);display:block;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px}
+        .filter-group select,.filter-group input{width:100%;border:2px solid #d0eaf8;border-radius:10px;padding:10px 14px;font-size:13px;font-family:'Nunito',sans-serif;font-weight:600;color:var(--text);outline:none;background:var(--sky-pale)}
+        .filter-group select:focus,.filter-group input:focus{border-color:var(--sky-mid)}
+        .results-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:10px}
+        .results-count{font-size:14px;font-weight:700;color:var(--text-mid)}
+        .sort-select{border:2px solid #d0eaf8;border-radius:10px;padding:8px 14px;font-size:13px;font-family:'Nunito',sans-serif;font-weight:700;color:var(--text);outline:none;background:#fff}
+        .layout-wrap{display:grid;grid-template-columns:280px 1fr;gap:28px;align-items:start}
+        @media(max-width:900px){.layout-wrap{grid-template-columns:1fr}.property-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+
+<div class="lang-bar">
+    <span style="color:rgba(255,255,255,0.7);font-size:13px;font-weight:700;margin-right:6px;">🌐</span>
+    <button class="lang-btn active" onclick="setLang('en',this)">EN</button>
+    <button class="lang-btn" onclick="setLang('zh',this)">中文</button>
+    <button class="lang-btn" onclick="setLang('ja',this)">日本語</button>
+</div>
+<nav>
+    <a class="logo" href="index.html">
+        <div class="logo-icon">🌸</div>
+        <div><div class="logo-main">Sakura Keys</div><div class="logo-sub">東京の鍵 · 东京之钥</div></div>
+    </a>
+    <ul class="nav-links">
+        <li><a href="index.html" data-nav-en="🏠 Home" data-nav-zh="🏠 首页" data-nav-ja="🏠 ホーム">🏠 Home</a></li>
+        <li><a href="properties.html" data-nav-en="🏢 Properties" data-nav-zh="🏢 房源" data-nav-ja="🏢 物件">🏢 Properties</a></li>
+        <li><a href="areas.html" data-nav-en="🗺️ Areas" data-nav-zh="🗺️ 区域" data-nav-ja="🗺️ エリア">🗺️ Areas</a></li>
+        <li><a href="invest.html" data-nav-en="💡 Invest" data-nav-zh="💡 投资" data-nav-ja="💡 投資">💡 Invest</a></li>
+        <li><a href="blog.html" data-nav-en="📰 Blog" data-nav-zh="📰 资讯" data-nav-ja="📰 ブログ">📰 Blog</a></li>
+        <li><a href="contact.html" class="nav-cta" data-nav-en="✉️ Contact" data-nav-zh="✉️ 联系" data-nav-ja="✉️ お問い合わせ">✉️ Contact</a></li>
+    </ul>
+</nav>
+
+<div class="page-hero">
+    <div class="page-hero-content">
+        <h1><span data-lang="en">🏢 All Properties</span><span data-lang="zh">🏢 全部房源</span><span data-lang="ja">🏢 全物件一覧</span></h1>
+        <p><span data-lang="en">Browse all available Tokyo properties for Singapore buyers</span><span data-lang="zh">浏览所有适合新加坡买家的东京在售房源</span><span data-lang="ja">シンガポール人向け東京全物件をご覧ください</span></p>
+    </div>
+</div>
+
+<div class="breadcrumb">
+    <a href="index.html">Home</a> › <span data-lang="en">Properties</span><span data-lang="zh">房源</span><span data-lang="ja">物件</span>
+</div>
+
+<div class="properties-wrap">
+    <div class="layout-wrap">
+
+        <!-- SIDEBAR FILTERS -->
+        <div>
+            <div class="sidebar">
+                <h3>🔍 <span data-lang="en">Filter Properties</span><span data-lang="zh">筛选房源</span><span data-lang="ja">物件を絞り込む</span></h3>
+                <div class="filter-group">
+                    <label><span data-lang="en">District</span><span data-lang="zh">区域</span><span data-lang="ja">エリア</span></label>
+                    <select>
+                        <option>All Districts</option>
+                        <option>Shinjuku 新宿</option>
+                        <option>Shibuya 渋谷</option>
+                        <option>Minato 港区</option>
+                        <option>Setagaya 世田谷</option>
+                        <option>Chiyoda 千代田</option>
+                        <option>Bunkyo 文京</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label><span data-lang="en">Property Type</span><span data-lang="zh">房型</span><span data-lang="ja">間取り</span></label>
+                    <select>
+                        <option>All Types</option>
+                        <option>1LDK</option>
+                        <option>2LDK</option>
+                        <option>3LDK</option>
+                        <option>4LDK+</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label><span data-lang="en">Min Price (¥)</span><span data-lang="zh">最低价格（日元）</span><span data-lang="ja">最低価格（円）</span></label>
+                    <input type="number" placeholder="e.g. 50000000">
+                </div>
+                <div class="filter-group">
+                    <label><span data-lang="en">Max Price (¥)</span><span data-lang="zh">最高价格（日元）</span><span data-lang="ja">最高価格（円）</span></label>
+                    <input type="number" placeholder="e.g. 200000000">
+                </div>
+                <div class="filter-group">
+                    <label><span data-lang="en">Min Size (㎡)</span><span data-lang="zh">最小面积（㎡）</span><span data-lang="ja">最小面積（㎡）</span></label>
+                    <input type="number" placeholder="e.g. 40">
+                </div>
+                <div class="filter-group">
+                    <label><span data-lang="en">Features</span><span data-lang="zh">特色</span><span data-lang="ja">特徴</span></label>
+                    <select>
+                        <option>Any</option>
+                        <option>New Build 新築</option>
+                        <option>Luxury 高級</option>
+                        <option>Pet OK ペット可</option>
+                        <option>Parking 駐車場</option>
+                    </select>
+                </div>
+                <button class="btn-primary" style="width:100%;margin-top:8px">
+                    🔍 <span data-lang="en">Search</span><span data-lang="zh">搜索</span><span data-lang="ja">検索</span>
+                </button>
+            </div>
+
+            <!-- CURRENCY QUICK CALC -->
+            <div class="sidebar">
+                <h3>💱 <span data-lang="en">Quick Convert</span><span data-lang="zh">快速换算</span><span data-lang="ja">簡易換算</span></h3>
+                <div class="filter-group">
+                    <label>🇯🇵 JPY →</label>
+                    <input id="jpyInput" type="number" placeholder="¥ Amount" oninput="convertJPY()">
+                </div>
+                <div style="background:var(--sky-lt);border-radius:10px;padding:10px 14px;font-size:14px;font-weight:800;color:var(--sky-dark)" id="sgdResult">S$ —</div>
+                <div style="font-size:11px;color:var(--text-mid);margin-top:8px;font-weight:600">Rate: 1 SGD ≈ ¥110 (indicative)</div>
+            </div>
+        </div>
+
+        <!-- PROPERTY LISTINGS -->
+        <div>
+            <div class="results-header">
+                <div class="results-count">
+                    <span data-lang="en">Showing <strong>6</strong> properties</span>
+                    <span data-lang="zh">显示 <strong>6</strong> 个房源</span>
+                    <span data-lang="ja"><strong>6</strong> 件の物件を表示</span>
+                </div>
+                <select class="sort-select">
+                    <option>Price: Low to High</option>
+                    <option>Price: High to Low</option>
+                    <option>Newest First</option>
+                    <option>Size: Large to Small</option>
+                </select>
+            </div>
+
+            <div class="property-grid">
+                <div class="card" onclick="openModal('m1')">
+                    <span class="card-badge badge-new">🆕 NEW</span>
+                    <button class="card-fav" onclick="event.stopPropagation();toggleFav(this)">🤍</button>
+                    <div class="card-photo"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&q=80" alt="Shinjuku"><div class="card-photo-overlay"><div class="card-photo-district">📍 SHINJUKU · 新宿区</div></div></div>
+                    <div class="card-body">
+                        <div class="card-title"><span data-lang="en">Shinjuku Garden Residence</span><span data-lang="zh">新宿花园公寓</span><span data-lang="ja">新宿ガーデンレジデンス</span></div>
+                        <div class="card-sub">🌿 新宿御苑 3min · 新宿駅 8min</div>
+                        <div class="card-tags"><span class="tag-item">2LDK</span><span class="tag-item">58.3㎡</span><span class="tag-item">12F/20F</span><span class="tag-item">2022年築</span></div>
+                        <div class="price-row"><div class="price-jpy">¥89,000,000 <small>JPY</small></div><div class="price-sgd">≈ S$810,000</div></div>
+                        <div class="card-btns">
+                            <button class="btn-primary" onclick="event.stopPropagation();openModal('m1')"><span data-lang="en">View Details</span><span data-lang="zh">查看详情</span><span data-lang="ja">詳細を見る</span></button>
+                            <a href="contact.html" class="btn-secondary" onclick="event.stopPropagation()"><span data-lang="en">Enquire 💬</span><span data-lang="zh">询价 💬</span><span data-lang="ja">問い合わせ 💬</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" onclick="openModal('m2')">
+                    <span class="card-badge badge-hot">🔥 HOT</span>
+                    <button class="card-fav" onclick="event.stopPropagation();toggleFav(this)">🤍</button>
+                    <div class="card-photo"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&q=80" alt="Shibuya"><div class="card-photo-overlay"><div class="card-photo-district">📍 SHIBUYA · 渋谷区</div></div></div>
+                    <div class="card-body">
+                        <div class="card-title"><span data-lang="en">Shibuya Sky Tower</span><span data-lang="zh">涩谷天空塔公寓</span><span data-lang="ja">渋谷スカイタワー</span></div>
+                        <div class="card-sub">🌆 渋谷駅 5min · 代官山 10min</div>
+                        <div class="card-tags"><span class="tag-item">1LDK</span><span class="tag-item">42.5㎡</span><span class="tag-item">25F/30F</span><span class="tag-item">2024年築</span></div>
+                        <div class="price-row"><div class="price-jpy">¥125,000,000 <small>JPY</small></div><div class="price-sgd">≈ S$1,138,000</div></div>
+                        <div class="card-btns">
+                            <button class="btn-primary" onclick="event.stopPropagation();openModal('m2')"><span data-lang="en">View Details</span><span data-lang="zh">查看详情</span><span data-lang="ja">詳細を見る</span></button>
+                            <a href="contact.html" class="btn-secondary" onclick="event.stopPropagation()"><span data-lang="en">Enquire 💬</span><span data-lang="zh">询价 💬</span><span data-lang="ja">問い合わせ 💬</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" onclick="openModal('m3')">
+                    <span class="card-badge badge-luxury">💎 LUXURY</span>
+                    <button class="card-fav" onclick="event.stopPropagation();toggleFav(this)">🤍</button>
+                    <div class="card-photo"><img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=600&q=80" alt="Minato"><div class="card-photo-overlay"><div class="card-photo-district">📍 MINATO · 港区</div></div></div>
+                    <div class="card-body">
+                        <div class="card-title"><span data-lang="en">Minato Prestige Residence</span><span data-lang="zh">港区名门豪宅</span><span data-lang="ja">港区プレステージレジデンス</span></div>
+                        <div class="card-sub">🗼 六本木 2min · Tokyo Tower View</div>
+                        <div class="card-tags"><span class="tag-item">3LDK</span><span class="tag-item">95.8㎡</span><span class="tag-item">38F/45F</span><span class="tag-item">2023年築</span></div>
+                        <div class="price-row"><div class="price-jpy">¥380,000,000 <small>JPY</small></div><div class="price-sgd">≈ S$3,460,000</div></div>
+                        <div class="card-btns">
+                            <button class="btn-primary" onclick="event.stopPropagation();openModal('m3')"><span data-lang="en">View Details</span><span data-lang="zh">查看详情</span><span data-lang="ja">詳細を見る</span></button>
+                            <a href="contact.html" class="btn-secondary" onclick="event.stopPropagation()"><span data-lang="en">Enquire 💬</span><span data-lang="zh">询价 💬</span><span data-lang="ja">問い合わせ 💬</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" onclick="openModal('m4')">
+                    <span class="card-badge badge-new">🆕 NEW</span>
+                    <button class="card-fav" onclick="event.stopPropagation();toggleFav(this)">🤍</button>
+                    <div class="card-photo"><img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=600&q=80" alt="Setagaya"><div class="card-photo-overlay"><div class="card-photo-district">📍 SETAGAYA · 世田谷区</div></div></div>
+                    <div class="card-body">
+                        <div class="card-title"><span data-lang="en">Setagaya Green Villa</span><span data-lang="zh">世田谷绿意别墅</span><span data-lang="ja">世田谷グリーンヴィラ</span></div>
+                        <div class="card-sub">🌳 下北沢 5min · 三軒茶屋 8min</div>
+                        <div class="card-tags"><span class="tag-item">3LDK</span><span class="tag-item">82.4㎡</span><span class="tag-item">3F/5F</span><span class="tag-item">2021年築</span></div>
+                        <div class="price-row"><div class="price-jpy">¥145,000,000 <small>JPY</small></div><div class="price-sgd">≈ S$1,320,000</div></div>
+                        <div class="card-btns">
+                            <button class="btn-primary" onclick="event.stopPropagation();openModal('m4')"><span data-lang="en">View Details</span><span data-lang="zh">查看详情</span><span data-lang="ja">詳細を見る</span></button>
+                            <a href="contact.html" class="btn-secondary" onclick="event.stopPropagation()"><span data-lang="en">Enquire 💬</span><span data-lang="zh">询价 💬</span><span data-lang="ja">問い合わせ 💬</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" onclick="openModal('m5')">
+                    <span class="card-badge badge-hot">🔥 HOT</span>
+                    <button class="card-fav" onclick="event.stopPropagation();toggleFav(this)">🤍</button>
+                    <div class="card-photo"><img src="https://images.unsplash.com/photo-1536376072261-38c75010e6c9?w=600&q=80" alt="Chiyoda"><div class="card-photo-overlay"><div class="card-photo-district">📍 CHIYODA · 千代田区</div></div></div>
+                    <div class="card-body">
+                        <div class="card-title"><span data-lang="en">Chiyoda Imperial View</span><span data-lang="zh">千代田皇居景观房</span><span data-lang="ja">千代田インペリアルビュー</span></div>
+                        <div class="card-sub">🏯 皇居 5min · 東京駅 8min</div>
+                        <div class="card-tags"><span class="tag-item">2LDK</span><span class="tag-item">65.0㎡</span><span class="tag-item">18F/22F</span><span class="tag-item">2023年築</span></div>
+                        <div class="price-row"><div class="price-jpy">¥210,000,000 <small>JPY</small></div><div class="price-sgd">≈ S$1,910,000</div></div>
+                        <div class="card-btns">
+                            <button class="btn-primary" onclick="event.stopPropagation();openModal('m5')"><span data-lang="en">View Details</span><span data-lang="zh">查看详情</span><span data-lang="ja">詳細を見る</span></button>
+                            <a href="contact.html" class="btn-secondary" onclick="event.stopPropagation()"><span data-lang="en">Enquire 💬</span><span data-lang="zh">询价 💬</span><span data-lang="ja">問い合わせ 💬</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" onclick="openModal('m6')">
+                    <span class="card-badge badge-luxury">💎 LUXURY</span>
+                    <button class="card-fav" onclick="event.stopPropagation();toggleFav(this)">🤍</button>
+                    <div class="card-photo"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80" alt="Bunkyo"><div class="card-photo-overlay"><div class="card-photo-district">📍 BUNKYO · 文京区</div></div></div>
+                    <div class="card-body">
+                        <div class="card-title"><span data-lang="en">Bunkyo Sakura Penthouse</span><span data-lang="zh">文京樱花顶层豪宅</span><span data-lang="ja">文京桜ペントハウス</span></div>
+                        <div class="card-sub">🌸 東京ドーム 3min · 後楽園 5min</div>
+                        <div class="card-tags"><span class="tag-item">4LDK</span><span class="tag-item">128.6㎡</span><span class="tag-item">TOP/28F</span><span class="tag-item">2024年築</span></div>
+                        <div class="price-row"><div class="price-jpy">¥520,000,000 <small>JPY</small></div><div class="price-sgd">≈ S$4,730,000</div></div>
+                        <div class="card-btns">
+                            <button class="btn-primary" onclick="event.stopPropagation();openModal('m6')"><span data-lang="en">View Details</span><span data-lang="zh">查看详情</span><span data-lang="ja">詳細を見る</span></button>
+                            <a href="contact.html" class="btn-secondary" onclick="event.stopPropagation()"><span data-lang="en">Enquire 💬</span><span data-lang="zh">询价 💬</span><span data-lang="ja">問い合わせ 💬</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODALS (same as index) -->
+<div class="modal-overlay" id="m1" onclick="closeOut(event,'m1')"><div class="modal"><button class="modal-close" onclick="closeModal('m1')">✕</button><div class="modal-hero"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=900&q=80" alt=""><div class="modal-hero-overlay"><div><div class="modal-hero-title">Shinjuku Garden Residence</div><div class="modal-hero-sub">📍 新宿区 · 新宿御苑 3min</div></div></div></div><div class="modal-body"><div class="modal-features"><span class="modal-tag">2LDK</span><span class="modal-tag">58.3㎡</span><span class="modal-tag">12F/20F</span><span class="modal-tag">🅿️ Parking</span><span class="modal-tag">🐾 Pet OK</span><span class="modal-tag">🏋️ Gym</span></div><div class="modal-grid"><div class="modal-info-block"><h4>🏠 Property Info</h4><div class="info-row"><span class="info-label">Type</span><span class="info-value">2LDK</span></div><div class="info-row"><span class="info-label">Size</span><span class="info-value">58.3㎡</span></div><div class="info-row"><span class="info-label">Floor</span><span class="info-value">12F/20F</span></div><div class="info-row"><span class="info-label">Built</span><span class="info-value">2022</span></div><div class="info-row"><span class="info-label">Direction</span><span class="info-value">South</span></div><div class="info-row"><span class="info-label">Mgmt Fee</span><span class="info-value">¥18,000/mo</span></div></div><div class="modal-info-block"><h4>🚉 Access</h4><div class="info-row"><span class="info-label">新宿御苑前駅</span><span class="info-value">3 min</span></div><div class="info-row"><span class="info-label">新宿駅</span><span class="info-value">8 min</span></div><div class="info-row"><span class="info-label">Narita</span><span class="info-value">~60 min</span></div><div class="info-row"><span class="info-label">Haneda</span><span class="info-value">~45 min</span></div></div></div><div class="modal-floorplan"><h4>📐 Floor Plan</h4><div class="floorplan-wrap"><svg width="320" height="220" viewBox="0 0 320 220"><rect width="320" height="220" fill="#E1F5FE"/><rect x="10" y="10" width="150" height="110" fill="#BBDEFB" stroke="#1565C0" stroke-width="2"/><text x="85" y="62" font-size="12" font-weight="700" text-anchor="middle" fill="#1565C0">LDK 18.5㎡</text><rect x="168" y="10" width="140" height="100" fill="#BBDEFB" stroke="#1565C0" stroke-width="2"/><text x="238" y="57" font-size="11" font-weight="700" text-anchor="middle" fill="#1565C0">Bedroom 1 · 10.2㎡</text><rect x="10" y="128" width="115" height="82" fill="#BBDEFB" stroke="#1565C0" stroke-width="2"/><text x="67" y="172" font-size="11" font-weight="700" text-anchor="middle" fill="#1565C0">Bedroom 2 · 8.5㎡</text><rect x="133" y="128" width="85" height="44" fill="#B2EBF2" stroke="#00838F" stroke-width="2"/><text x="175" y="154" font-size="11" font-weight="700" text-anchor="middle" fill="#00838F">Bath</text><rect x="133" y="176" width="85" height="34" fill="#B2EBF2" stroke="#00838F" stroke-width="2"/><text x="175" y="197" font-size="11" font-weight="700" text-anchor="middle" fill="#00838F">WC</text><text x="300" y="212" font-size="10" fill="#aac">N↑</text></svg></div></div><div class="modal-price-block"><div><div class="modal-price-jpy">¥89,000,000 <small>JPY</small></div><div style="color:rgba(255,255,255,0.6);font-size:12px;margin-top:4px">Indicative price</div></div><div class="modal-price-sgd">≈ S$810,000</div></div><div class="modal-btns"><a href="contact.html" class="btn-primary">✉️ Enquire Now</a><button class="btn-secondary" onclick="closeModal('m1')" style="flex:1;padding:14px;border-radius:14px;font-size:15px">← Back</button></div></div></div></div>
+<div class="modal-overlay" id="m2" onclick="closeOut(event,'m2')"><div class="modal"><button class="modal-close" onclick="closeModal('m2')">✕</button><div class="modal-hero"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=900&q=80" alt=""><div class="modal-hero-overlay"><div><div class="modal-hero-title">Shibuya Sky Tower</div><div class="modal-hero-sub">📍 渋谷区 · 渋谷駅 5min</div></div></div></div><div class="modal-body"><div class="modal-features"><span class="modal-tag">1LDK</span><span class="modal-tag">42.5㎡</span><span class="modal-tag">25F/30F</span><span class="modal-tag">🏋️ Gym</span><span class="modal-tag">🌅 City View</span><span class="modal-tag">🔐 Concierge</span></div><div class="modal-grid"><div class="modal-info-block"><h4>🏠 Property Info</h4><div class="info-row"><span class="info-label">Type</span><span class="info-value">1LDK</span></div><div class="info-row"><span class="info-label">Size</span><span class="info-value">42.5㎡</span></div><div class="info-row"><span class="info-label">Floor</span><span class="info-value">25F/30F</span></div><div class="info-row"><span class="info-label">Built</span><span class="info-value">2024</span></div><div class="info-row"><span class="info-label">Direction</span><span class="info-value">East</span></div><div class="info-row"><span class="info-label">Mgmt Fee</span><span class="info-value">¥24,000/mo</span></div></div><div class="modal-info-block"><h4>🚉 Access</h4><div class="info-row"><span class="info-label">渋谷駅</span><span class="info-value">5 min</span></div><div class="info-row"><span class="info-label">代官山駅</span><span class="info-value">10 min</span></div><div class="info-row"><span class="info-label">Narita</span><span class="info-value">~55 min</span></div><div class="info-row"><span class="info-label">Haneda</span><span class="info-value">~35 min</span></div></div></div><div class="modal-price-block"><div><div class="modal-price-jpy">¥125,000,000 <small>JPY</small></div><div style="color:rgba(255,255,255,0.6);font-size:12px;margin-top:4px">Indicative price</div></div><div class="modal-price-sgd">≈ S$1,138,000</div></div><div class="modal-btns"><a href="contact.html" class="btn-primary">✉️ Enquire Now</a><button class="btn-secondary" onclick="closeModal('m2')" style="flex:1;padding:14px;border-radius:14px;font-size:15px">← Back</button></div></div></div></div>
+<div class="modal-overlay" id="m3" onclick="closeOut(event,'m3')"><div class="modal"><button class="modal-close" onclick="closeModal('m3')">✕</button><div class="modal-hero"><img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=900&q=80" alt=""><div class="modal-hero-overlay"><div><div class="modal-hero-title">Minato Prestige Residence</div><div class="modal-hero-sub">📍 港区 · 六本木 2min</div></div></div></div><div class="modal-body"><div class="modal-features"><span class="modal-tag">3LDK</span><span class="modal-tag">95.8㎡</span><span class="modal-tag">38F/45F</span><span class="modal-tag">🗼 Tower View</span><span class="modal-tag">🏊 Pool</span><span class="modal-tag">🔐 Concierge</span></div><div class="modal-grid"><div class="modal-info-block"><h4>🏠 Property Info</h4><div class="info-row"><span class="info-label">Type</span><span class="info-value">3LDK</span></div><div class="info-row"><span class="info-label">Size</span><span class="info-value">95.8㎡</span></div><div class="info-row"><span class="info-label">Floor</span><span class="info-value">38F/45F</span></div><div class="info-row"><span class="info-label">Built</span><span class="info-value">2023</span></div><div class="info-row"><span class="info-label">Direction</span><span class="info-value">SW</span></div><div class="info-row"><span class="info-label">Mgmt Fee</span><span class="info-value">¥58,000/mo</span></div></div><div class="modal-info-block"><h4>🚉 Access</h4><div class="info-row"><span class="info-label">六本木駅</span><span class="info-value">2 min</span></div><div class="info-row"><span class="info-label">麻布十番駅</span><span class="info-value">6 min</span></div><div class="info-row"><span class="info-label">Narita</span><span class="info-value">~65 min</span></div><div class="info-row"><span class="info-label">Haneda</span><span class="info-value">~30 min</span></div></div></div><div class="modal-price-block"><div><div class="modal-price-jpy">¥380,000,000 <small>JPY</small></div><div style="color:rgba(255,255,255,0.6);font-size:12px;margin-top:4px">Indicative price</div></div><div class="modal-price-sgd">≈ S$3,460,000</div></div><div class="modal-btns"><a href="contact.html" class="btn-primary">✉️ Enquire Now</a><button class="btn-secondary" onclick="closeModal('m3')" style="flex:1;padding:14px;border-radius:14px;font-size:15px">← Back</button></div></div></div></div>
+<div class="modal-overlay" id="m4" onclick="closeOut(event,'m4')"><div class="modal"><button class="modal-close" onclick="closeModal('m4')">✕</button><div class="modal-hero"><img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=900&q=80" alt=""><div class="modal-hero-overlay"><div><div class="modal-hero-title">Setagaya Green Villa</div><div class="modal-hero-sub">📍 世田谷区 · 下北沢 5min</div></div></div></div><div class="modal-body"><div class="modal-features"><span class="modal-tag">3LDK</span><span class="modal-tag">82.4㎡</span><span class="modal-tag">3F/5F</span><span class="modal-tag">🌳 Garden</span><span class="modal-tag">🐾 Pet OK</span><span class="modal-tag">🅿️ Parking</span></div><div class="modal-grid"><div class="modal-info-block"><h4>🏠 Property Info</h4><div class="info-row"><span class="info-label">Type</span><span class="info-value">3LDK</span></div><div class="info-row"><span class="info-label">Size</span><span class="info-value">82.4㎡</span></div><div class="info-row"><span class="info-label">Floor</span><span class="info-value">3F/5F</span></div><div class="info-row"><span class="info-label">Built</span><span class="info-value">2021</span></div><div class="info-row"><span class="info-label">Direction</span><span class="info-value">South</span></div><div class="info-row"><span class="info-label">Mgmt Fee</span><span class="info-value">¥22,000/mo</span></div></div><div class="modal-info-block"><h4>🚉 Access</h4><div class="info-row"><span class="info-label">下北沢駅</span><span class="info-value">5 min</span></div><div class="info-row"><span class="info-label">三軒茶屋駅</span><span class="info-value">8 min</span></div><div class="info-row"><span class="info-label">Narita</span><span class="info-value">~75 min</span></div><div class="info-row"><span class="info-label">Haneda</span><span class="info-value">~40 min</span></div></div></div><div class="modal-price-block"><div><div class="modal-price-jpy">¥145,000,000 <small>JPY</small></div><div style="color:rgba(255,255,255,0.6);font-size:12px;margin-top:4px">Indicative price</div></div><div class="modal-price-sgd">≈ S$1,320,000</div></div><div class="modal-btns"><a href="contact.html" class="btn-primary">✉️ Enquire Now</a><button class="btn-secondary" onclick="closeModal('m4')" style="flex:1;padding:14px;border-radius:14px;font-size:15px">← Back</button></div></div></div></div>
+<div class="modal-overlay" id="m5" onclick="closeOut(event,'m5')"><div class="modal"><button class="modal-close" onclick="closeModal('m5')">✕</button><div class="modal-hero"><img src="https://images.unsplash.com/photo-1536376072261-38c75010e6c9?w=900&q=80" alt=""><div class="modal-hero-overlay"><div><div class="modal-hero-title">Chiyoda Imperial View</div><div class="modal-hero-sub">📍 千代田区 · 皇居 5min</div></div></div></div><div class="modal-body"><div class="modal-features"><span class="modal-tag">2LDK</span><span class="modal-tag">65.0㎡</span><span class="modal-tag">18F/22F</span><span class="modal-tag">🏯 Palace View</span><span class="modal-tag">🏋️ Gym</span><span class="modal-tag">🔐 Concierge</span></div><div class="modal-grid"><div class="modal-info-block"><h4>🏠 Property Info</h4><div class="info-row"><span class="info-label">Type</span><span class="info-value">2LDK</span></div><div class="info-row"><span class="info-label">Size</span><span class="info-value">65.0㎡</span></div><div class="info-row"><span class="info-label">Floor</span><span class="info-value">18F/22F</span></div><div class="info-row"><span class="info-label">Built</span><span class="info-value">2023</span></div><div class="info-row"><span class="info-label">Direction</span><span class="info-value">West</span></div><div class="info-row"><span class="info-label">Mgmt Fee</span><span class="info-value">¥32,000/mo</span></div></div><div class="modal-info-block"><h4>🚉 Access</h4><div class="info-row"><span class="info-label">二重橋前駅</span><span class="info-value">3 min</span></div><div class="info-row"><span class="info-label">東京駅</span><span class="info-value">8 min</span></div><div class="info-row"><span class="info-label">Narita</span><span class="info-value">~55 min</span></div><div class="info-row"><span class="info-label">Haneda</span><span class="info-value">~35 min</span></div></div></div><div class="modal-price-block"><div><div class="modal-price-jpy">¥210,000,000 <small>JPY</small></div><div style="color:rgba(255,255,255,0.6);font-size:12px;margin-top:4px">Indicative price</div></div><div class="modal-price-sgd">≈ S$1,910,000</div></div><div class="modal-btns"><a href="contact.html" class="btn-primary">✉️ Enquire Now</a><button class="btn-secondary" onclick="closeModal('m5')" style="flex:1;padding:14px;border-radius:14px;font-size:15px">← Back</button></div></div></div></div>
+<div class="modal-overlay" id="m6" onclick="closeOut(event,'m6')"><div class="modal"><button class="modal-close" onclick="closeModal('m6')">✕</button><div class="modal-hero"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=80" alt=""><div class="modal-hero-overlay"><div><div class="modal-hero-title">Bunkyo Sakura Penthouse</div><div class="modal-hero-sub">📍 文京区 · 東京ドーム 3min</div></div></div></div><div class="modal-body"><div class="modal-features"><span class="modal-tag">4LDK</span><span class="modal-tag">128.6㎡</span><span class="modal-tag">TOP/28F</span><span class="modal-tag">🌸 Rooftop</span><span class="modal-tag">🏊 Pool</span><span class="modal-tag">🍷 Wine Cellar</span></div><div class="modal-grid"><div class="modal-info-block"><h4>🏠 Property Info</h4><div class="info-row"><span class="info-label">Type</span><span class="info-value">4LDK</span></div><div class="info-row"><span class="info-label">Size</span><span class="info-value">128.6㎡</span></div><div class="info-row"><span class="info-label">Floor</span><span class="info-value">Top/28F</span></div><div class="info-row"><span class="info-label">Built</span><span class="info-value">2024</span></div><div class="info-row"><span class="info-label">Direction</span><span class="info-value">360°</span></div><div class="info-row"><span class="info-label">Mgmt Fee</span><span class="info-value">¥85,000/mo</span></div></div><div class="modal-info-block"><h4>🚉 Access</h4><div class="info-row"><span class="info-label">後楽園駅</span><span class="info-value">5 min</span></div><div class="info-row"><span class="info-label">水道橋駅</span><span class="info-value">6 min</span></div><div class="info-row"><span class="info-label">Narita</span><span class="info-value">~60 min</span></div><div class="info-row"><span class="info-label">Haneda</span><span class="info-value">~45 min</span></div></div></div><div class="modal-price-block"><div><div class="modal-price-jpy">¥520,000,000 <small>JPY</small></div><div style="color:rgba(255,255,255,0.6);font-size:12px;margin-top:4px">Indicative price</div></div><div class="modal-price-sgd">≈ S$4,730,000</div></div><div class="modal-btns"><a href="contact.html" class="btn-primary">✉️ Enquire Now</a><button class="btn-secondary" onclick="closeModal('m6')" style="flex:1;padding:14px;border-radius:14px;font-size:15px">← Back</button></div></div></div></div>
+
+<footer>
+    <div class="footer-logo">🌸 Sakura Keys</div>
+    <div class="footer-tag">東京の鍵 · 东京之钥 · Your Key to Tokyo Living</div>
+    <div class="footer-links">
+        <a href="index.html">🏠 Home</a><a href="properties.html">🏢 Properties</a><a href="areas.html">🗺️ Areas</a><a href="invest.html">💡 Invest</a><a href="blog.html">📰 Blog</a><a href="contact.html">✉️ Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 Sakura Keys. All rights reserved. | Exchange rate: 1 SGD ≈ ¥110 JPY (indicative only)</div>
+</footer>
+<div class="float-cta">
+    <a href="https://wa.me/6591234567" target="_blank" class="float-btn float-btn-wa">💬 WhatsApp</a>
+    <a href="tel:+6591234567" class="float-btn float-btn-call">📞 Call</a>
+    <a href="contact.html" class="float-btn float-btn-mail">✉️ Email</a>
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>

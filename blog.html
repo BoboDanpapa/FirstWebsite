@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Sakura Keys 🌸</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .blog-wrap{padding:40px;max-width:1200px;margin:0 auto}
+        .blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:28px;margin-top:32px}
+        .blog-card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);transition:transform 0.3s;cursor:pointer}
+        .blog-card:hover{transform:translateY(-6px)}
+        .blog-img{height:200px;overflow:hidden;position:relative}
+        .blog-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s}
+        .blog-card:hover .blog-img img{transform:scale(1.05)}
+        .blog-cat-badge{position:absolute;top:14px;left:14px;padding:5px 14px;border-radius:20px;font-size:11px;font-weight:800;letter-spacing:1px}
+        .cat-market{background:var(--sky-mid);color:#fff}
+        .cat-guide{background:var(--mint);color:#00838F}
+        .cat-life{background:var(--sun);color:#7A5C00}
+        .cat-legal{background:var(--coral);color:#fff}
+        .blog-body{padding:22px}
+        .blog-title{font-size:17px;font-weight:900;color:var(--text);margin-bottom:8px;line-height:1.4}
+        .blog-excerpt{font-size:13px;color:var(--text-mid);line-height:1.65;font-weight:600;margin-bottom:16px}
+        .blog-meta{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--text-mid);font-weight:700;border-top:1px solid #f0f0f0;padding-top:12px}
+        .blog-author{display:flex;align-items:center;gap:8px}
+        .blog-author img{width:28px;height:28px;border-radius:50%;object-fit:cover;border:2px solid var(--sky)}
+        .blog-read{color:var(--sky-dark);font-weight:800;text-decoration:none;transition:color 0.3s}
+        .blog-read:hover{color:var(--sky-mid)}
+        .blog-featured{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
+        .blog-featured .blog-img{height:100%;min-height:300px}
+        .blog-featured .blog-body{padding:36px;display:flex;flex-direction:column;justify-content:center}
+        .blog-featured .blog-title{font-size:24px;margin-bottom:14px}
+        .blog-featured .blog-excerpt{font-size:15px;margin-bottom:20px}
+        .categories-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+        .cat-btn{padding:7px 18px;border-radius:20px;border:2px solid #d0eaf8;background:#fff;cursor:pointer;font-size:13px;font-weight:700;font-family:'Nunito',sans-serif;transition:all 0.3s;color:var(--text-mid)}
+        .cat-btn:hover,.cat-btn.active{background:linear-gradient(135deg,var(--sky-dark),var(--sky-mid));border-color:var(--sky-dark);color:#fff}
+        .newsletter-box{background:linear-gradient(135deg,var(--navy),var(--sky-dark));border-radius:24px;padding:40px;text-align:center;margin-top:48px}
+        .newsletter-box h3{color:#fff;font-size:22px;font-weight:900;margin-bottom:8px}
+        .newsletter-box p{color:rgba(255,255,255,0.7);font-size:14px;font-weight:600;margin-bottom:24px}
+        .newsletter-form{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;max-width:500px;margin:0 auto}
+        .newsletter-input{flex:1;min-width:220px;border:none;border-radius:14px;padding:13px 18px;font-size:14px;font-family:'Nunito',sans-serif;font-weight:600;outline:none}
+        .newsletter-btn{background:var(--sky-mid);color:#fff;border:none;padding:13px 24px;border-radius:14px;font-size:14px;font-weight:800;font-family:'Nunito',sans-serif;cursor:pointer;transition:all 0.3s;white-space:nowrap}
+        .newsletter-btn:hover{background:var(--sky);transform:scale(1.05)}
+        @media(max-width:768px){
+            .blog-wrap{padding:20px}
+            .blog-featured{grid-template-columns:1fr}
+            .blog-featured .blog-img{min-height:200px}
+            .blog-grid{grid-template-columns:1fr}
+        }
+    </style>
+</head>
+<body>
+
+<div class="lang-bar">
+    <span style="color:rgba(255,255,255,0.7);font-size:13px;font-weight:700;margin-right:6px;">🌐</span>
+    <button class="lang-btn active" onclick="setLang('en',this)">EN</button>
+    <button class="lang-btn" onclick="setLang('zh',this)">中文</button>
+    <button class="lang-btn" onclick="setLang('ja',this)">日本語</button>
+</div>
+
+<nav>
+    <a class="logo" href="index.html"><div class="logo-icon">🌸</div><div><div class="logo-main">Sakura Keys</div><div class="logo-sub">東京の鍵 · 东京之钥</div></div></a>
+    <ul class="nav-links">
+        <li><a href="index.html" data-nav-en="🏠 Home" data-nav-zh="🏠 首页" data-nav-ja="🏠 ホーム">🏠 Home</a></li>
+        <li><a href="properties.html" data-nav-en="🏢 Properties" data-nav-zh="🏢 房源" data-nav-ja="🏢 物件">🏢 Properties</a></li>
+        <li><a href="areas.html" data-nav-en="🗺️ Areas" data-nav-zh="🗺️ 区域" data-nav-ja="🗺️ エリア">🗺️ Areas</a></li>
+        <li><a href="invest.html" data-nav-en="💡 Invest" data-nav-zh="💡 投资" data-nav-ja="💡 投資">💡 Invest</a></li>
+        <li><a href="blog.html" data-nav-en="📰 Blog" data-nav-zh="📰 资讯" data-nav-ja="📰 ブログ">📰 Blog</a></li>
+        <li><a href="contact.html" class="nav-cta" data-nav-en="✉️ Contact" data-nav-zh="✉️ 联系" data-nav-ja="✉️ お問い合わせ">✉️ Contact</a></li>
+    </ul>
+</nav>
+
+<div class="page-hero">
+    <div class="page-hero-content">
+        <h1><span data-lang="en">📰 Tokyo Property Insights</span><span data-lang="zh">📰 东京不动产资讯</span><span data-lang="ja">📰 東京不動産インサイト</span></h1>
+        <p><span data-lang="en">Market trends, buying guides & lifestyle tips for Singapore buyers</span><span data-lang="zh">为新加坡买家提供市场动态、购房指南和生活贴士</span><span data-lang="ja">シンガポール人向け市場動向・購入ガイド・ライフスタイル情報</span></p>
+    </div>
+</div>
+
+<div class="breadcrumb"><a href="index.html">Home</a> › <span data-lang="en">Blog</span><span data-lang="zh">资讯</span><span data-lang="ja">ブログ</span></div>
+
+<div class="blog-wrap">
+
+    <!-- CATEGORIES -->
+    <div class="categories-bar">
+        <button class="cat-btn active" onclick="filterActive(this)"><span data-lang="en">All</span><span data-lang="zh">全部</span><span data-lang="ja">すべて</span></button>
+        <button class="cat-btn" onclick="filterActive(this)"><span data-lang="en">📊 Market Update</span><span data-lang="zh">📊 市场动态</span><span data-lang="ja">📊 市場情報</span></button>
+        <button class="cat-btn" onclick="filterActive(this)"><span data-lang="en">🗺️ Buyer's Guide</span><span data-lang="zh">🗺️ 购房指南</span><span data-lang="ja">🗺️ 購入ガイド</span></button>
+        <button class="cat-btn" onclick="filterActive(this)"><span data-lang="en">🌏 Lifestyle</span><span data-lang="zh">🌏 生活方式</span><span data-lang="ja">🌏 ライフスタイル</span></button>
+        <button class="cat-btn" onclick="filterActive(this)"><span data-lang="en">⚖️ Legal & Tax</span><span data-lang="zh">⚖️ 法律税务</span><span data-lang="ja">⚖️ 法律・税金</span></button>
+    </div>
+
+    <div class="blog-grid">
+
+        <!-- FEATURED POST -->
+        <div class="blog-featured blog-card">
+            <div class="blog-img">
+                <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80" alt="Tokyo skyline">
+                <span class="blog-cat-badge cat-market">📊 MARKET UPDATE</span>
+            </div>
+            <div class="blog-body">
+                <div class="blog-title">
+                    <span data-lang="en">Tokyo Property Prices Hit Record High in 2025 — What It Means for Singapore Buyers</span>
+                    <span data-lang="zh">2025年东京房价创历史新高——对新加坡买家意味着什么</span>
+                    <span data-lang="ja">2025年東京不動産価格が過去最高を更新——シンガポール人購入者への影響</span>
+                </div>
+                <div class="blog-excerpt">
+                    <span data-lang="en">Central Tokyo districts saw an average 12% year-on-year price growth in 2025, driven by foreign investment, limited supply and Japan's economic recovery. Despite rising prices, SGD buyers still benefit from favorable exchange rates...</span>
+                    <span data-lang="zh">受外资涌入、供应有限和日本经济复苏推动，2025年东京核心区房价年均涨幅达12%。尽管价格上涨，新元买家仍受益于有利汇率...</span>
+                    <span data-lang="ja">外国投資・供給不足・日本経済回復により、2025年の東京都心部は前年比平均12%上昇。価格上昇にもかかわらず、SGD購入者は有利な為替レートの恩恵を受けています...</span>
+                </div>
+                <div class="blog-meta">
+                    <div class="blog-author">
+                        <img src="https://i.pravatar.cc/28?img=12" alt="Author">
+                        <span>Sarah Lim · May 2026</span>
+                    </div>
+                    <a href="#" class="blog-read"><span data-lang="en">Read more →</span><span data-lang="zh">阅读更多 →</span><span data-lang="ja">続きを読む →</span></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- POST 2 -->
+        <div class="blog-card">
+            <div class="blog-img">
+                <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=500&q=80" alt="Buying guide">
+                <span class="blog-cat-badge cat-guide">🗺️ BUYER'S GUIDE</span>
+            </div>
+            <div class="blog-body">
+                <div class="blog-title">
+                    <span data-lang="en">Complete Guide: How Foreigners Buy Property in Japan (2026 Edition)</span>
+                    <span data-lang="zh">完整指南：外国人如何在日本购买房产（2026年版）</span>
+                    <span data-lang="ja">完全ガイド：外国人の日本不動産購入方法（2026年版）</span>
+                </div>
+                <div class="blog-excerpt">
+                    <span data-lang="en">No restrictions, no ABSD, full ownership rights. Here's everything you need to know about buying Tokyo real estate as a Singaporean...</span>
+                    <span data-lang="zh">无限制、无额外印花税、完全所有权。以下是新加坡人购买东京房产需要了解的一切...</span>
+                    <span data-lang="ja">制限なし・ABSDなし・完全所有権。シンガポール人が東京不動産を購入するために知っておくべきことをすべて解説...</span>
+                </div>
+                <div class="blog-meta">
+                    <div class="blog-author"><img src="https://i.pravatar.cc/28?img=33" alt="Author"><span>Kenji Tanaka · Apr 2026</span></div>
+                    <a href="#" class="blog-read"><span data-lang="en">Read more →</span><span data-lang="zh">阅读更多 →</span><span data-lang="ja">続きを読む →</span></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- POST 3 -->
+        <div class="blog-card">
+            <div class="blog-img">
+                <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=500&q=80" alt="Tokyo life">
+                <span class="blog-cat-badge cat-life">🌏 LIFESTYLE</span>
+            </div>
+            <div class="blog-body">
+                <div class="blog-title">
+                    <span data-lang="en">Living in Tokyo as a Singaporean Family: A Real Story</span>
+                    <span data-lang="zh">新加坡家庭在东京的生活：真实故事</span>
+                    <span data-lang="ja">シンガポール人家族の東京生活：リアルな体験談</span>
+                </div>
+                <div class="blog-excerpt">
+                    <span data-lang="en">The Tan family from Singapore relocated to Setagaya in 2024. We sat down with them to hear about schools, food, community and what they miss about home...</span>
+                    <span data-lang="zh">来自新加坡的陈家于2024年移居世田谷。我们与他们交流了学校、饮食、社区以及他们对家乡的思念...</span>
+                    <span data-lang="ja">シンガポール出身のタン家が2024年に世田谷へ移住。学校・食事・コミュニティ・故郷への思いを語ってもらいました...</span>
+                </div>
+                <div class="blog-meta">
+                    <div class="blog-author"><img src="https://i.pravatar.cc/28?img=47" alt="Author"><span>Mei Lin · Mar 2026</span></div>
+                    <a href="#" class="blog-read"><span data-lang="en">Read more →</span><span data-lang="zh">阅读更多 →</span><span data-lang="ja">続きを読む →</span></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- POST 4 -->
+        <div class="blog-card">
+            <div class="blog-img">
+                <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=500&q=80" alt="Tax guide">
+                <span class="blog-cat-badge cat-legal">⚖️ LEGAL & TAX</span>
+            </div>
+            <div class="blog-body">
+                <div class="blog-title">
+                    <span data-lang="en">Japan Property Taxes Explained: A Simple Guide for Singapore Investors</span>
+                    <span data-lang="zh">日本房产税务详解：新加坡投资者简明指南</span>
+                    <span data-lang="ja">日本不動産税金解説：シンガポール投資家向けシンプルガイド</span>
+                </div>
+                <div class="blog-excerpt">
+                    <span data-lang="en">Acquisition tax, registration tax, fixed asset tax — we break down every cost so there are no surprises. Plus: how to legally minimise your tax burden...</span>
+                    <span data-lang="zh">取得税、登记税、固定资产税——我们详细分解每项费用，让您没有意外。另外：如何合法减少税务负担...</span>
+                    <span data-lang="ja">取得税・登録免許税・固定資産税を全て解説。サプライズなし。合法的な節税方法もご紹介...</span>
+                </div>
+                <div class="blog-meta">
+                    <div class="blog-author"><img src="https://i.pravatar.cc/28?img=22" alt="Author"><span>Yuki Sato · Feb 2026</span></div>
+                    <a href="#" class="blog-read"><span data-lang="en">Read more →</span><span data-lang="zh">阅读更多 →</span><span data-lang="ja">続きを読む →</span></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- POST 5 -->
+        <div class="blog-card">
+            <div class="blog-img">
+                <img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=500&q=80" alt="Minato district">
+                <span class="blog-cat-badge cat-guide">🗺️ AREA GUIDE</span>
+            </div>
+            <div class="blog-body">
+                <div class="blog-title">
+                    <span data-lang="en">Minato vs Shibuya: Which Tokyo District is Right for You?</span>
+                    <span data-lang="zh">港区 vs 涩谷：哪个东京区域最适合你？</span>
+                    <span data-lang="ja">港区 vs 渋谷：あなたに合うのはどちら？</span>
+                </div>
+                <div class="blog-excerpt">
+                    <span data-lang="en">Two of Tokyo's most popular districts for Singapore buyers — but they offer very different lifestyles and investment profiles. We compare them side by side...</span>
+                    <span data-lang="zh">东京最受新加坡买家欢迎的两个区域——但它们提供截然不同的生活方式和投资特征。我们进行并排比较...</span>
+                    <span data-lang="ja">シンガポール人購入者に人気の2エリアを比較。ライフスタイルと投資特性の違いを徹底解説...</span>
+                </div>
+                <div class="blog-meta">
+                    <div class="blog-author"><img src="https://i.pravatar.cc/28?img=15" alt="Author"><span>David Ng · Jan 2026</span></div>
+                    <a href="#" class="blog-read"><span data-lang="en">Read more →</span><span data-lang="zh">阅读更多 →</span><span data-lang="ja">続きを読む →</span></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- POST 6 -->
+        <div class="blog-card">
+            <div class="blog-img">
+                <img src="https://images.unsplash.com/photo-1513407030348-c983a97b98d8?w=500&q=80" alt="Tokyo station">
+                <span class="blog-cat-badge cat-market">📊 MARKET UPDATE</span>
+            </div>
+            <div class="blog-body">
+                <div class="blog-title">
+                    <span data-lang="en">Weak Yen Strategy: Why Now is the Best Time to Buy Tokyo Property</span>
+                    <span data-lang="zh">弱日元策略：为什么现在是购买东京房产的最佳时机</span>
+                    <span data-lang="ja">円安戦略：今が東京不動産購入の最好機である理由</span>
+                </div>
+                <div class="blog-excerpt">
+                    <span data-lang="en">The JPY/SGD exchange rate is at a historic low. A ¥100M Tokyo apartment costs S$909K today vs S$1.2M five years ago. The window may not stay open forever...</span>
+                    <span data-lang="zh">日元/新元汇率处于历史低位。一套1亿日元的东京公寓今天只需90.9万新元，而5年前需要120万新元。这个窗口期可能不会永远开着...</span>
+                    <span data-lang="ja">JPY/SGD為替レートが歴史的低水準。1億円の東京マンションが今はS$90.9万、5年前はS$120万でした。この機会はいつまでも続きません...</span>
+                </div>
+                <div class="blog-meta">
+                    <div class="blog-author"><img src="https://i.pravatar.cc/28?img=8" alt="Author"><span>Sarah Lim · Dec 2025</span></div>
+                    <a href="#" class="blog-read"><span data-lang="en">Read more →</span><span data-lang="zh">阅读更多 →</span><span data-lang="ja">続きを読む →</span></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- NEWSLETTER -->
+    <div class="newsletter-box">
+        <h3>📬 <span data-lang="en">Stay Updated</span><span data-lang="zh">保持关注</span><span data-lang="ja">最新情報を受け取る</span></h3>
+        <p>
+            <span data-lang="en">Get the latest Tokyo property news, market updates and exclusive listings delivered to your inbox</span>
+            <span data-lang="zh">将最新东京房产新闻、市场动态和独家房源直接发送到您的邮箱</span>
+            <span data-lang="ja">東京不動産の最新ニュース・市場情報・独占物件をメールでお届け</span>
+        </p>
+        <div class="newsletter-form">
+            <input class="newsletter-input" type="email" placeholder="your@email.com">
+            <button class="newsletter-btn" onclick="subscribeNewsletter(this)">
+                <span data-lang="en">Subscribe 🌸</span>
+                <span data-lang="zh">订阅 🌸</span>
+                <span data-lang="ja">登録する 🌸</span>
+            </button>
+        </div>
+        <div id="newsletterSuccess" style="display:none;color:rgba(255,255,255,0.9);font-size:14px;font-weight:700;margin-top:16px">
+            ✅ <span data-lang="en">Subscribed! Welcome to the Sakura Keys community 🌸</span>
+            <span data-lang="zh">订阅成功！欢迎加入Sakura Keys社区 🌸</span>
+            <span data-lang="ja">登録完了！Sakura Keysコミュニティへようこそ 🌸</span>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <div class="footer-logo">🌸 Sakura Keys</div>
+    <div class="footer-tag">東京の鍵 · 东京之钥 · Your Key to Tokyo Living</div>
+    <div class="footer-links">
+        <a href="index.html">🏠 Home</a>
+        <a href="properties.html">🏢 Properties</a>
+        <a href="areas.html">🗺️ Areas</a>
+        <a href="invest.html">💡 Invest</a>
+        <a href="blog.html">📰 Blog</a>
+        <a href="contact.html">✉️ Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 Sakura Keys. All rights reserved. | Exchange rate: 1 SGD ≈ ¥110 JPY (indicative only)</div>
+</footer>
+
+<div class="float-cta">
+    <a href="https://wa.me/6591234567" target="_blank" class="float-btn float-btn-wa">💬 WhatsApp</a>
+    <a href="tel:+6591234567" class="float-btn float-btn-call">📞 Call</a>
+    <a href="contact.html" class="float-btn float-btn-mail">✉️ Email</a>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+function subscribeNewsletter(btn) {
+    btn.style.display = 'none';
+    document.getElementById('newsletterSuccess').style.display = 'block';
+}
+</script>
+</body>
+</html>

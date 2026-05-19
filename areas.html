@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Areas | Sakura Keys 🌸</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .areas-wrap{padding:40px;max-width:1200px;margin:0 auto}
+        .area-detail-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:28px;margin-top:32px}
+        .area-detail-card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);transition:transform 0.3s}
+        .area-detail-card:hover{transform:translateY(-6px)}
+        .area-card-img{height:200px;overflow:hidden}
+        .area-card-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s}
+        .area-detail-card:hover .area-card-img img{transform:scale(1.05)}
+        .area-card-body{padding:22px}
+        .area-card-header{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+        .area-emoji-big{font-size:36px}
+        .area-card-name{font-size:20px;font-weight:900;color:var(--text)}
+        .area-card-jp{font-size:13px;color:var(--sky-mid);font-weight:700}
+        .area-card-desc{font-size:14px;color:var(--text-mid);line-height:1.7;font-weight:600;margin-bottom:16px}
+        .area-stats{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+        .area-stat-pill{background:var(--sky-lt);border:1.5px solid var(--sky);color:var(--sky-dark);padding:5px 12px;border-radius:10px;font-size:12px;font-weight:700}
+        .highlight-item{font-size:13px;color:var(--text-mid);font-weight:600;padding:3px 0}
+        .highlight-title{font-size:12px;font-weight:800;color:var(--text);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px}
+        @media(max-width:768px){.areas-wrap{padding:20px}.area-detail-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+
+<div class="lang-bar">
+    <span style="color:rgba(255,255,255,0.7);font-size:13px;font-weight:700;margin-right:6px;">🌐</span>
+    <button class="lang-btn active" onclick="setLang('en',this)">EN</button>
+    <button class="lang-btn" onclick="setLang('zh',this)">中文</button>
+    <button class="lang-btn" onclick="setLang('ja',this)">日本語</button>
+</div>
+
+<nav>
+    <a class="logo" href="index.html"><div class="logo-icon">🌸</div><div><div class="logo-main">Sakura Keys</div><div class="logo-sub">東京の鍵 · 东京之钥</div></div></a>
+    <ul class="nav-links">
+        <li><a href="index.html" data-nav-en="🏠 Home" data-nav-zh="🏠 首页" data-nav-ja="🏠 ホーム">🏠 Home</a></li>
+        <li><a href="properties.html" data-nav-en="🏢 Properties" data-nav-zh="🏢 房源" data-nav-ja="🏢 物件">🏢 Properties</a></li>
+        <li><a href="areas.html" data-nav-en="🗺️ Areas" data-nav-zh="🗺️ 区域" data-nav-ja="🗺️ エリア">🗺️ Areas</a></li>
+        <li><a href="invest.html" data-nav-en="💡 Invest" data-nav-zh="💡 投资" data-nav-ja="💡 投資">💡 Invest</a></li>
+        <li><a href="blog.html" data-nav-en="📰 Blog" data-nav-zh="📰 资讯" data-nav-ja="📰 ブログ">📰 Blog</a></li>
+        <li><a href="contact.html" class="nav-cta" data-nav-en="✉️ Contact" data-nav-zh="✉️ 联系" data-nav-ja="✉️ お問い合わせ">✉️ Contact</a></li>
+    </ul>
+</nav>
+
+<div class="page-hero">
+    <div class="page-hero-content">
+        <h1><span data-lang="en">🗺️ Tokyo District Guide</span><span data-lang="zh">🗺️ 东京区域指南</span><span data-lang="ja">🗺️ 東京エリアガイド</span></h1>
+        <p><span data-lang="en">Discover the unique character of each Tokyo neighborhood</span><span data-lang="zh">探索每个东京区域的独特魅力</span><span data-lang="ja">東京各エリアの個性を発見しよう</span></p>
+    </div>
+</div>
+
+<div class="breadcrumb"><a href="index.html">Home</a> › <span data-lang="en">Areas</span><span data-lang="zh">区域</span><span data-lang="ja">エリア</span></div>
+
+<div class="areas-wrap">
+    <div class="sec-header" style="padding:0 0 10px">
+        <div class="sec-tag">🗺️ EXPLORE</div>
+        <h2><span data-lang="en">Find Your Perfect Tokyo Neighborhood</span><span data-lang="zh">找到你最理想的东京居住区</span><span data-lang="ja">理想のエリアを見つけよう</span></h2>
+        <p><span data-lang="en">Each district offers a completely different lifestyle</span><span data-lang="zh">每个区域提供截然不同的生活方式</span><span data-lang="ja">エリアごとに異なるライフスタイルを提供</span></p>
+    </div>
+
+    <div class="area-detail-grid">
+
+        <!-- SHINJUKU -->
+        <div class="area-detail-card">
+            <div class="area-card-img"><img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=600&q=80" alt="Shinjuku"></div>
+            <div class="area-card-body">
+                <div class="area-card-header"><div class="area-emoji-big">🏙️</div><div><div class="area-card-name">Shinjuku</div><div class="area-card-jp">新宿区</div></div></div>
+                <div class="area-stats"><span class="area-stat-pill">32 listings</span><span class="area-stat-pill">Avg ¥95M</span><span class="area-stat-pill">Yield ~3.9%</span></div>
+                <div class="area-card-desc">
+                    <span data-lang="en">Tokyo's most vibrant hub. World-class transport, entertainment, shopping and dining all in one place. Ideal for investors seeking high rental demand.</span>
+                    <span data-lang="zh">东京最繁华的中心地带。世界级交通、娱乐、购物和餐饮一应俱全，非常适合寻求高租赁需求的投资者。</span>
+                    <span data-lang="ja">東京最大の繁華街。交通・エンタメ・ショッピング・グルメが集結。高い賃貸需要を求める投資家に最適。</span>
+                </div>
+                <div class="highlight-title">✨ Highlights</div>
+                <div class="highlight-item">🚉 Major transport hub (JR, Metro)</div>
+                <div class="highlight-item">🌳 Shinjuku Gyoen National Garden</div>
+                <div class="highlight-item">🏢 Major business & shopping district</div>
+                <div class="highlight-item">🍜 World-famous dining & nightlife</div>
+                <br>
+                <a href="properties.html" class="btn-primary" style="text-decoration:none;display:flex;justify-content:center;padding:11px;margin-top:8px">
+                    <span data-lang="en">View Shinjuku Properties →</span><span data-lang="zh">查看新宿房源 →</span><span data-lang="ja">新宿の物件を見る →</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- SHIBUYA -->
+        <div class="area-detail-card">
+            <div class="area-card-img"><img src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=600&q=80" alt="Shibuya"></div>
+            <div class="area-card-body">
+                <div class="area-card-header"><div class="area-emoji-big">🛍️</div><div><div class="area-card-name">Shibuya</div><div class="area-card-jp">渋谷区</div></div></div>
+                <div class="area-stats"><span class="area-stat-pill">28 listings</span><span class="area-stat-pill">Avg ¥130M</span><span class="area-stat-pill">Yield ~3.6%</span></div>
+                <div class="area-card-desc">
+                    <span data-lang="en">The epicenter of Tokyo youth culture, fashion and technology. Home to global brands and creative agencies. Highly sought-after for both living and investment.</span>
+                    <span data-lang="zh">东京年轻文化、时尚和科技的中心。全球品牌和创意公司云集，无论自住还是投资都极受欢迎。</span>
+                    <span data-lang="ja">東京のユース文化・ファッション・テクノロジーの中心地。グローバルブランドやクリエイティブ企業が集まる人気エリア。</span>
+                </div>
+                <div class="highlight-title">✨ Highlights</div>
+                <div class="highlight-item">🚉 Shibuya Station (major hub)</div>
+                <div class="highlight-item">🎨 Daikanyama & Nakameguro nearby</div>
+                <div class="highlight-item">💻 Tech startup ecosystem</div>
+                <div class="highlight-item">🌆 Iconic Shibuya Crossing</div>
+                <br>
+                <a href="properties.html" class="btn-primary" style="text-decoration:none;display:flex;justify-content:center;padding:11px;margin-top:8px">
+                    <span data-lang="en">View Shibuya Properties →</span><span data-lang="zh">查看涩谷房源 →</span><span data-lang="ja">渋谷の物件を見る →</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- MINATO -->
+        <div class="area-detail-card">
+            <div class="area-card-img"><img src="https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=600&q=80" alt="Minato"></div>
+            <div class="area-card-body">
+                <div class="area-card-header"><div class="area-emoji-big">🗼</div><div><div class="area-card-name">Minato</div><div class="area-card-jp">港区</div></div></div>
+                <div class="area-stats"><span class="area-stat-pill">24 listings</span><span class="area-stat-pill">Avg ¥280M</span><span class="area-stat-pill">Yield ~3.2%</span></div>
+                <div class="area-card-desc">
+                    <span data-lang="en">Tokyo's most prestigious address. Home to embassies, luxury hotels, Roppongi Hills and Tokyo Tower. The choice of diplomats, executives and discerning investors.</span>
+                    <span data-lang="zh">东京最具声望的地址。大使馆、豪华酒店、六本木之丘和东京铁塔所在地，是外交官、高管和挑剔投资者的首选。</span>
+                    <span data-lang="ja">東京で最もプレステージの高いエリア。大使館・高級ホテル・六本木ヒルズ・東京タワーが集まる外交官や経営幹部御用達の地。</span>
+                </div>
+                <div class="highlight-title">✨ Highlights</div>
+                <div class="highlight-item">🗼 Tokyo Tower views</div>
+                <div class="highlight-item">🏛️ Roppongi Hills & Azabu Juban</div>
+                <div class="highlight-item">🌍 Embassy district</div>
+                <div class="highlight-item">🍽️ Michelin-starred restaurants</div>
+                <br>
+                <a href="properties.html" class="btn-primary" style="text-decoration:none;display:flex;justify-content:center;padding:11px;margin-top:8px">
+                    <span data-lang="en">View Minato Properties →</span><span data-lang="zh">查看港区房源 →</span><span data-lang="ja">港区の物件を見る →</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- SETAGAYA -->
+        <div class="area-detail-card">
+            <div class="area-card-img"><img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=80" alt="Setagaya"></div>
+            <div class="area-card-body">
+                <div class="area-card-header"><div class="area-emoji-big">🌿</div><div><div class="area-card-name">Setagaya</div><div class="area-card-jp">世田谷区</div></div></div>
+                <div class="area-stats"><span class="area-stat-pill">18 listings</span><span class="area-stat-pill">Avg ¥120M</span><span class="area-stat-pill">Yield ~3.7%</span></div>
+                <div class="area-card-desc">
+                    <span data-lang="en">Tokyo's most family-friendly residential district. Quiet, green and safe with excellent schools. Popular with Singapore families relocating to Tokyo for a high quality of life.</span>
+                    <span data-lang="zh">东京最适合家庭居住的区域。安静、绿意盎然、安全，学校优质。深受移居东京的新加坡家庭喜爱。</span>
+                    <span data-lang="ja">東京で最もファミリー向けの住宅エリア。静かで緑豊か、安全で優れた学校も揃う。東京に移住するシンガポール人家族に人気。</span>
+                </div>
+                <div class="highlight-title">✨ Highlights</div>
+                <div class="highlight-item">🌳 Largest green space in Tokyo</div>
+                <div class="highlight-item">🏫 Excellent international schools</div>
+                <div class="highlight-item">🎸 Shimokitazawa culture scene</div>
+                <div class="highlight-item">🐾 Very pet-friendly neighborhood</div>
+                <br>
+                <a href="properties.html" class="btn-primary" style="text-decoration:none;display:flex;justify-content:center;padding:11px;margin-top:8px">
+                    <span data-lang="en">View Setagaya Properties →</span><span data-lang="zh">查看世田谷房源 →</span><span data-lang="ja">世田谷の物件を見る →</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- CHIYODA -->
+        <div class="area-detail-card">
+            <div class="area-card-img"><img src="https://images.unsplash.com/photo-1513407030348-c983a97b98d8?w=600&q=80" alt="Chiyoda"></div>
+            <div class="area-card-body">
+                <div class="area-card-header"><div class="area-emoji-big">👑</div><div><div class="area-card-name">Chiyoda</div><div class="area-card-jp">千代田区</div></div></div>
+                <div class="area-stats"><span class="area-stat-pill">12 listings</span><span class="area-stat-pill">Avg ¥200M</span><span class="area-stat-pill">Yield ~3.3%</span></div>
+                <div class="area-card-desc">
+                    <span data-lang="en">The historic heart of Tokyo. Home to the Imperial Palace, Tokyo Station and Japan's seat of government. Unmatched prestige and connectivity in the capital's core.</span>
+                    <span data-lang="zh">东京的历史中心。皇居、东京站和日本政府所在地。首都核心地带无与伦比的声望与便利性。</span>
+                    <span data-lang="ja">東京の歴史的中心地。皇居・東京駅・日本の行政機関が集まる、首都の中核エリア。</span>
+                </div>
+                <div class="highlight-title">✨ Highlights</div>
+                <div class="highlight-item">🏯 Imperial Palace & gardens</div>
+                <div class="highlight-item">🚄 Tokyo Station (Shinkansen hub)</div>
+                <div class="highlight-item">🏢 Marunouchi business district</div>
+                <div class="highlight-item">🌸 Chidorigafuchi cherry blossoms</div>
+                <br>
+                <a href="properties.html" class="btn-primary" style="text-decoration:none;display:flex;justify-content:center;padding:11px;margin-top:8px">
+                    <span data-lang="en">View Chiyoda Properties →</span><span data-lang="zh">查看千代田房源 →</span><span data-lang="ja">千代田の物件を見る →</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- BUNKYO -->
+        <div class="area-detail-card">
+            <div class="area-card-img"><img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=600&q=80" alt="Bunkyo"></div>
+            <div class="area-card-body">
+                <div class="area-card-header"><div class="area-emoji-big">🌸</div><div><div class="area-card-name">Bunkyo</div><div class="area-card-jp">文京区</div></div></div>
+                <div class="area-stats"><span class="area-stat-pill">9 listings</span><span class="area-stat-pill">Avg ¥160M</span><span class="area-stat-pill">Yield ~3.5%</span></div>
+                <div class="area-card-desc">
+                    <span data-lang="en">Tokyo's academic and cultural heart. Home to Tokyo University, beautiful parks and traditional temples. A refined, intellectual neighborhood with a calm atmosphere.</span>
+                    <span data-lang="zh">东京的学术和文化中心。东京大学、美丽公园和传统寺庙所在地。氛围宁静、文化气息浓厚的精致社区。</span>
+                    <span data-lang="ja">東京の学術・文化の中心地。東京大学・美しい公園・伝統的な寺社が集まる、落ち着いた知的なエリア。</span>
+                </div>
+                <div class="highlight-title">✨ Highlights</div>
+                <div class="highlight-item">🎓 University of Tokyo campus</div>
+                <div class="highlight-item">🌸 Famous cherry blossom spots</div>
+                <div class="highlight-item">⚾ Tokyo Dome entertainment</div>
+                <div class="highlight-item">🏛️ Koishikawa Korakuen Garden</div>
+                <br>
+                <a href="properties.html" class="btn-primary" style="text-decoration:none;display:flex;justify-content:center;padding:11px;margin-top:8px">
+                    <span data-lang="en">View Bunkyo Properties →</span><span data-lang="zh">查看文京房源 →</span><span data-lang="ja">文京の物件を見る →</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <div class="footer-logo">🌸 Sakura Keys</div>
+    <div class="footer-tag">東京の鍵 · 东京之钥 · Your Key to Tokyo Living</div>
+    <div class="footer-links">
+        <a href="index.html">🏠 Home</a><a href="properties.html">🏢 Properties</a><a href="areas.html">🗺️ Areas</a><a href="invest.html">💡 Invest</a><a href="blog.html">📰 Blog</a><a href="contact.html">✉️ Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 Sakura Keys. All rights reserved. | Exchange rate: 1 SGD ≈ ¥110 JPY (indicative only)</div>
+</footer>
+<div class="float-cta">
+    <a href="https://wa.me/6591234567" target="_blank" class="float-btn float-btn-wa">💬 WhatsApp</a>
+    <a href="tel:+6591234567" class="float-btn float-btn-call">📞 Call</a>
+    <a href="contact.html" class="float-btn float-btn-mail">✉️ Email</a>
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>
